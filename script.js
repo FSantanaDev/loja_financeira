@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const formulario = document.getElementById('avaliacaoForm');
   const botaoEnviar = document.getElementById('btnEnviar');
   const checkboxPolitica = document.getElementById('politicaPrivacidade');
-  const numeroWhatsApp = '+5592984635305';
+  const numeroWhatsApp = '+5592999889392';
   const rendaAnualInput = document.getElementById('rendaAnualAvaliacao');
   const rendaBalancoInput = document.getElementById('rendaBalancoAvaliacao');
   
