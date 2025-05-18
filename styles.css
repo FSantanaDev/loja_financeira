@@ -1,0 +1,770 @@
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escuro: #090908;
+    --maisEscuro: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+/* :root{
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    --escuro: #0f172a;
+    --maisEscuro: #0a0f1c;
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);   
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+/* Estilos da navegação */
+.navegacao {
+    position: fixed;
+    top: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 2rem; /* Adicionado padding lateral */
+    display: flex;
+    justify-content: space-between; /* Espaço entre o logo/título e o menu toggle */
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas maiores */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--claro);
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem; /* Reduzido o gap para melhor adaptação */
+}
+
+.menu li a {
+    text-decoration: none;
+    color: var(--claro);
+    font-size: 1.1rem; /* Reduzido o tamanho da fonte */
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    width: 100%;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu.inactive {
+    display: none !important;
+}
+
+/* Estilos do cabeçalho */
+.cabecalho {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* Centralizar o conteúdo */
+}
+
+.foto-perfil {
+    width: 300px; /* Reduzido tamanho inicial */
+    height: 300px;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+    border-radius: 1%;
+    animation: flutuar 5s ease-in-out infinite alternate;
+    margin-bottom: 1rem; /* Adicionado margem inferior */
+}
+
+h1 {
+    font-size: 2.5rem; /* Reduzido tamanho inicial */
+    color: var(--claro);
+    margin: 1rem 0; /* Reduzido margem */
+    font-weight: bold;
+}
+
+.cabecalho-subtitulo {
+    font-size: 1.2rem; /* Reduzido tamanho inicial */
+    color: var(--claro);
+    margin-bottom: 1.5rem; /* Adicionado margem inferior */
+}
+
+.sobre-caixa-botao {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.sobre-botao {
+    background-color: var(--vidro);
+    color: #fff;
+    padding: 0.8rem 1.5rem; /* Reduzido padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Reduzido tamanho da fonte */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sobre-botao:hover {
+    background-color: var(--escuro);
+}
+
+/* Estilos da seção "Sobre" */
+.sobre {
+    padding: 4rem 2rem; /* Reduzido padding */
+}
+
+.sobre-titulo {
+    font-size: 2rem; /* Reduzido tamanho inicial */
+    color: var(--claro);
+    margin-bottom: 1rem;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.sobre-caixa {
+    padding: 1.5rem; /* Reduzido padding */
+    max-width: 800px;
+    margin: 30px auto; /* Reduzido margem */
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sobre-paragrafo {
+    font-size: 0.9rem; /* Reduzido tamanho inicial */
+    line-height: 1.5; /* Ajustado line-height */
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: var(--claro);
+    padding: 0 15px; /* Reduzido padding lateral */
+}
+
+.sobre-caixa-diferenciais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: var(--claro);
+    padding: 0 15px;
+}
+
+.sobre-paragrafo-diferenciais {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: var(--claro);
+    padding: 0 15px;
+    text-decoration: underline;
+}
+
+.sobre-caixa-diferenciais ul {
+    list-style-type: none;
+    padding-left: 15px; /* Reduzido padding */
+    color: var(--claro);
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.sobre-caixa ul li {
+    margin-bottom: 0.4rem; /* Reduzido margem */
+}
+
+.nome-financeira {
+    color: var(--secundaria);
+    font-weight: bold;
+}
+
+
+/* Estilos da seção "Produtos" */
+.projetos {
+    padding: 4rem 2rem; /* Reduzido padding */
+    margin-bottom: 300px; /* Reduzido margem inferior */
+
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2rem; /* Reduzido tamanho inicial */
+    margin-bottom: 100px; /* Reduzido margem inferior */
+    margin-top: 30px;
+}
+
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajustado minmax */
+    gap: 1.5rem; /* Reduzido gap */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.projetos-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    display: flex; /* Tornar um container Flexbox */
+    flex-direction: column; /* Organizar os itens verticalmente */
+    height: 100%; /* Garante que todos os cards tenham a mesma altura */
+}
+
+.projetos-card:hover {
+    box-shadow: 0 5px 10px rgba(79, 70, 229, 0.3);
+    transform: translateY(-5px) scale(1.01);
+}
+
+.projetos-imagem {
+    width: 100%;
+    max-height: 200px; /* Defina uma altura máxima desejada */
+    object-fit: contain; /* Ou cover */
+}
+
+.caixa-texto-projetos {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    flex-grow: 1; /* Permite que o texto cresça para ocupar o espaço restante */
+}
+
+.caixa-texto-projetos h3 {
+    font-size: 1.1rem;
+   
+}
+
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.3;
+    font-size: 0.85rem;
+}
+
+.sobre-produtos-botao {
+    text-align: center;
+    padding: 1rem; /* Adicione algum padding ao redor do botão */
+}
+
+.sobre-botao {
+    background-color: var(--vidro);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Opcional: fazer o botão ocupar a largura total */
+}
+
+.sobre-botao:hover {
+    background-color: var(--escuro);
+}.projetos-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que todos os cards tenham a mesma altura */
+}
+
+.projetos-card:hover {
+    box-shadow: 0 5px 10px rgba(79, 70, 229, 0.3);
+    transform: translateY(-5px) scale(1.01);
+}
+
+.projetos-imagem {
+    width: 100%;
+    max-height: 200px; /* Defina uma altura máxima desejada */
+    object-fit: contain; /* Ou cover */
+}
+
+.projeto-conteudo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o conteúdo cresça para ocupar o espaço */
+    padding: 1rem; /* Adicione padding ao redor do conteúdo */
+}
+
+.caixa-texto-projetos {
+    margin-bottom: 1rem; /* Adicione margem entre o texto e o botão */
+    flex-grow: 1; /* Permite que o texto cresça e empurre o botão para baixo */
+}
+
+.caixa-texto-projetos h3 {
+    font-size: 1.1rem;
+    margin-top: 0; /* Reset de margens padrão */
+    margin-bottom: 0.5rem;
+}
+
+.caixa-texto-projetos p {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.3;
+    font-size: 0.85rem;
+    margin-top: 0; /* Reset de margens padrão */
+    margin-bottom: 0;
+}
+
+.sobre-produtos-botao {
+    text-align: center;
+}
+
+.sobre-botao {
+    background-color: var(--vidro);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.sobre-botao:hover {
+    background-color: var(--escuro);
+}
+
+
+/* Estilos da seção "Contato" */
+.contatos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* Reduzido gap */
+    padding: 2rem;
+    margin-bottom: 10px;
+   
+}
+
+
+.contatos-titulo {
+    text-align: center;
+    font-size: 2rem; /* Reduzido tamanho inicial */
+    margin-bottom: 30px; /* Reduzido margem inferior */
+}
+
+.formulario-contato {
+    max-width: 500px; /* Reduzido largura máxima */
+    margin: 100px auto; /* Reduzido margem */
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    padding: 1.5rem; /* Reduzido padding */
+    border: 1px solid var(--vidro);
+}
+
+.grupo-form {
+    margin-bottom: 1rem; /* Reduzido margem */
+}
+
+.campo-form {
+    width: 100%;
+    padding: 0.8rem; /* Reduzido padding */
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;
+    font-size: 0.9rem; /* Reduzido tamanho da fonte */
+}
+
+.campo-form:focus {
+    border-color: var(--primaria);
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+}
+
+.botao-form {
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 0.8rem 1.5rem; /* Reduzido padding */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.5 ease;
+    font-size: 0.9rem; /* Reduzido tamanho da fonte */
+}
+
+.botao-form:hover {
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+    transform: translateY(-2px);
+}
+
+
+
+
+
+/* Estilos para o modal */
+/* Estilo geral do modal (container externo) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+ 
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6); /* Fundo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal h2{
+    color: var(--maisEscuro);
+}
+
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro transparente */
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Conteúdo do modal */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+
+
+/* Botão "X" para fechar */
+.fechar-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+}
+
+
+
+/* Estilo dos campos */
+form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: var(--maisEscuro);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form input[type="tel"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 2px solid #ccc;
+  color: var(--maisEscuro);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+
+.container-cep-endereco{
+    display: flex;
+    width: 100%;
+    gap:20px ;
+    justify-content: flex-start;
+}
+.container-cpf-telefone{
+    display: flex;
+    width: 100%;
+    gap:20px ;
+    justify-content: flex-start;
+}
+
+
+.container-cidade-estado{
+    display: flex;
+    width: 100%;
+    gap:10px ;
+    justify-content: flex-start;
+}
+
+
+.container-cidade-estado .estado{
+    width: 15%;
+}
+
+
+.container-renda{
+    display: flex;
+    width: 100%;
+    gap:20px ;
+   justify-content: flex-start;
+}
+
+/* Estilo do checkbox */
+.checkbox-container {
+    display: flex; /* Ativa o Flexbox para o container */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin-top: 15px; /* Mantenha a margem superior, se desejar */
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 8px; /* Espaçamento à direita do checkbox */
+}
+
+.checkbox-container label {
+    /* Remova quaisquer estilos de margem superior que possam estar interferindo */
+    margin-top: 0;
+}
+
+/* Botão enviar */
+form button[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--escuro);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button[disabled] {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+
+.fechar-modal:hover,
+.fechar-modal:focus {
+    color: black;
+    text-decoration: none;
+}
+
+
+
+
+
+/* Estilos para telas menores (celulares e tablets) - MODAL */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    /* Ajuste dos grupos de campos (flex) para empilharem verticalmente */
+    .container-cep-endereco,
+    .container-cpf-telefone,
+    .container-cidade-estado,
+    .container-renda {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Estado vai ocupar 100% na versão mobile */
+    .container-cidade-estado .estado {
+        width: 100%;
+    }
+
+    /* Botão de fechar com tamanho menor para caber bem em telas pequenas */
+    .fechar-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+    }
+
+    /* Estilo do botão para caber melhor em celulares */
+    form button[type="submit"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #avaliacaoForm h2 {
+        font-size: 1.4em; /* Ajuste o tamanho da fonte do título em telas menores */
+        margin-bottom: 15px;
+        text-align: left; /* Alinhe o título à esquerda em telas menores (opcional) */
+    }
+}
+
+/* Media Queries para Responsividade - GERAL DO SITE (evitando conflitos com o modal) */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* Esconde o menu normal */
+    }
+
+    .menu-toggle {
+        display: flex; /* Exibe o menu sanduíche */
+    }
+
+    .foto-perfil {
+        width: 200px;
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cabecalho-subtitulo {
+        font-size: 1rem;
+    }
+
+    .sobre-titulo {
+        font-size: 1.8rem;
+    }
+
+    .projetos-titulo {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .cabecalho-subtitulo {
+        font-size: 0.9rem;
+    }
+
+    .foto-perfil {
+        width: 150px;
+        height: 150px;
+    }
+
+    .sobre-titulo {
+        font-size: 1.5rem;
+    }
+
+    .sobre-paragrafo {
+        font-size: 0.8rem;
+    }
+
+    .projetos-titulo {
+        font-size: 1.4rem;
+    }
+
+    .projetos-caixa {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    /* Ajustes específicos para o modal em telas ainda menores */
+    .modal-content {
+        padding: 15px;
+    }
+
+    .fechar-modal {
+        top: 5px;
+        right: 10px;
+        font-size: 18px;
+    }
+
+    form button[type="submit"] {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #avaliacaoForm h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+}
+
+

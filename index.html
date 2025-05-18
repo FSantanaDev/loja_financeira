@@ -1,0 +1,226 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+        (function(){
+            emailjs.init("xXUgi_Qu_LDOR391F"); // Sua Public Key do EmailJS (você precisa substituir pela sua chave real)
+        })();
+    </script>
+
+  <title>Giselle Financeira</title>
+</head>
+<body>
+
+  <!-- Fundo animado (se estiver usando partículas, personalize no CSS) -->
+  <div class="particulas"></div>
+
+  <!-- Navegação -->
+  <nav class="navegacao" id="navegacao">
+    <button class="menu-toggle" aria-controls="menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#Início" class="menu-link">Início</a></li>
+      <li><a href="#sobre-produtos" class="menu-link">Produtos</a></li>
+      <li><a href="#sobre" class="menu-link">Sobre</a></li>
+      <li><a href="#contatos" class="menu-link">Contato</a></li>
+    </ul>
+  </nav>
+
+<!-- MODAL DE AVALIAÇÃO FINANCEIRA -->
+  <!-- Overlay + Modal -->
+<!-- Fundo e conteúdo do modal -->
+<div id="avaliacaoModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <!-- Botão de fechar o modal -->
+    <span class="fechar-modal" style="cursor: pointer; float: right;">&times;</span>
+    <h2>Solicitação de Avaliação Financeira</h2>
+
+    <!-- Formulário -->
+    <form id="avaliacaoForm">
+        <!-- Nome completo -->
+        <label for="nomeAvaliacao">Nome completo:</label>
+        <input type="text" id="nomeAvaliacao" name="nome" required>
+
+        <label for="emailAvaliacao">E-mail:</label>
+        <input type="email" id="emailAvaliacao" name="email" required>
+
+        <div class="container-cpf-telefone">
+                <div class="campo-cpf">  
+                <!-- CPF -->
+                    <label for="cpfAvaliacao">CPF:</label>
+                    <input type="text" class="cpf" id="cpfAvaliacao" name="cpf" required>
+                </div>
+
+                <div class="campo-telefone"> 
+                <!-- Telefone com WhatsApp -->
+                <label for="telefoneAvaliacao">Telefone (WhatsApp):</label>
+                <input type="text" id="telefoneAvaliacao" name="telefone" required>
+                </div>
+            </div>
+     
+        <div class="container-cep-endereco">
+            <div class="cep">
+            <!-- CEP -->
+            <label for="cepAvaliacao">CEP:</label>
+            <input type="text" id="cepAvaliacao" name="cep" required>
+            </div>
+            <div class="cep-box">
+            <!-- CEP -->
+            
+            </div>
+        </div>
+
+        <!-- Endereço preenchido automaticamente -->
+        <label for="enderecoAvaliacao">Endereço:</label>
+        <input type="text" id="enderecoAvaliacao" name="endereco" readonly required>
+
+        <!-- <label for="bairroAvaliacao">Bairro:</label>
+        <input type="text" id="bairroAvaliacao" name="bairro" readonly required> -->
+        
+        <div class="container-cidade-estado">
+
+            <div class="cidade">
+                <label for="bairroAvaliacao">Bairro:</label>
+                <input type="text" id="bairroAvaliacao" name="bairro" readonly required>
+            </div>
+
+
+
+
+            <div class="cidade">
+                <label for="cidadeAvaliacao">Cidade:</label>
+                <input type="text" id="cidadeAvaliacao" name="cidade" readonly required>
+            </div>
+            <div class="estado">
+                <label for="estadoAvaliacao">Estado:</label>
+                <input type="text" id="estadoAvaliacao" name="estado" readonly required>
+            </div>
+        </div>
+
+
+        <div class="container-renda">
+
+            <div class="renda-mensal">
+            <!-- Renda Anual -->
+            <label for="rendaAnualAvaliacao">Renda Anual:</label>
+            <input type="text" id="rendaAnualAvaliacao" name="renda_anual" required>
+            </div>
+
+            <div class="renda-balanco">
+            <label for="rendaBalancoAvaliacao">Renda do Último Balanço:</label>
+            <input type="text" id="rendaBalancoAvaliacao" name="renda_balanco" required>            
+            </div>
+       
+       
+       
+       
+        </div>        
+
+      <!-- Política de Privacidade -->
+      <div class="checkbox-container">
+        <input type="checkbox" id="politicaPrivacidade" required>
+        <label for="politicaPrivacidade">
+          Eu concordo com a <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>
+        </label>
+      </div>
+
+      <!-- Botão de Enviar -->
+      <button type="submit" id="btnEnviar" disabled>Enviar Avaliação</button>
+    </form>
+  </div>
+</div>
+
+
+  <!-- INÍCIO -->
+  <main id="Início" class="cabecalho">
+    <img src="lucro-financeiro.png" alt="Foto de perfil" class="foto-perfil" />
+    <h1>Giselle Financeira</h1>
+    <p class="cabecalho-subtitulo">Sua parceira em soluções financeiras.</p>
+    <div class="sobre-cabecalho-botao">
+      <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
+    </div>
+  </main>
+
+  <!-- SOBRE A EMPRESA -->
+  <section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">Sobre a <span class="nome-financeira">Giselle Financeira</span></h2>
+    <div class="sobre-caixa">
+      <p class="sobre-paragrafo"><strong><span class="nome-financeira">Giselle Financeira</span>: Fomento Empresarial Estratégico para o seu Crescimento</strong></p>
+      <p class="sobre-paragrafo">A <span class="nome-financeira">Giselle Financeira</span> é sua parceira para impulsionar o crescimento empresarial com soluções de fomento personalizadas.</p>
+      <p class="sobre-paragrafo">Oferecemos mais que capital, construindo relações de confiança com análise criteriosa e soluções alinhadas aos seus objetivos.</p>
+      <p class="sobre-paragrafo">Nosso compromisso é o seu sucesso...</p>
+
+      <p class="sobre-paragrafo-diferenciais"><strong>Diferenciais:</strong></p>
+      <ul>
+        <li>Soluções personalizadas com abordagem consultiva.</li>
+        <li>Agilidade e eficiência nos processos.</li>
+        <li>Condições competitivas e justas.</li>
+        <li>Parceria estratégica dedicada ao seu sucesso.</li>
+      </ul>
+
+      <div class="sobre-caixa-botao">
+        <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="sobre-produtos" class="projetos">
+    <h2 class="projetos-titulo">Nossos Produtos</h2>
+    <div class="projetos-caixa">
+      <div class="projetos-card">
+        <img src="capital-de-giro.png" class="projetos-imagem" />
+        <div class="projeto-conteudo">
+          <h3>Capital de Giro</h3>
+          <p>Manter o fluxo de caixa da sua empresa saudável</p>
+          <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
+        </div>
+      </div>
+
+      <div class="projetos-card">
+        <img src="adiantamento-em-dinheiro.png" class="projetos-imagem" />
+        <div class="projeto-conteudo">
+          <h3>Antecipação de Recebíveis</h3>
+          <p>Desconto de cheques e factoring para liberar capital</p>
+          <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
+        </div>
+      </div>
+
+      <div class="projetos-card">
+        <img src="emprestimo-de-credito.png" class="projetos-imagem" />
+        <div class="projeto-conteudo">
+          <h3>Crédito para Investimento</h3>
+          <p>Financiamento para máquinas e expansão</p>
+          <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contatos" class="contato">
+    <h2 class="contatos-titulo">Entre em Contato</h2>
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+      <div class="grupo-form">
+        <input placeholder="Nome" class="campo-form" id="nome" />
+      </div>
+      <div class="grupo-form">
+        <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="4" id="mensagem"></textarea>
+      </div>
+      <button type="submit" class="botao-form">Enviar WhatsApp</button>
+    </form>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+html{
+    scroll-behavior: smooth; /* Define o comportamento de rolagem  para que a rolagem seja suave*/
+}
+  
+:root{
+    --primaria: #4f46e5;
+    --secundaria: #7c3aed;
+    /* --escuro: #0f172a; */
+    --maisEscuro: #aed6f1;
+     --escuro: #090908;
+    /* --maisEscuro: #0a0f1c; */
+
+    --claro: #e2e8f0;
+    --vidro: rgba(255, 255, 255, 0.1);   
+}
+body{
+    background-color: var(--escuro); /* Define a cor de fundo do corpo da página como var(--Escuro);*/
+    color: var(--claro);/* Define a cor do texto como var(--claro);*/
+    /*padding-top: px;  Ajuste este valor conforme necessário */
+
+}
+
+.navegacao{ 
+    position: fixed;/* Define a posição do elemento como fixa;*/   
+    top: 0; /* Define a posição superior do elemento como 0;*/
+    background-color: rgba(15, 23, 42, 0.95);/* Define a cor de fundo do elemento como uma mistura de preto e opacidade de 0.8;*/
+    width: 100%;/* Define a largura do elemento como 100%;*/
+    z-index: 1000; /* Define o z-index do elemento como 100;*/
+    padding: 1.5rem;/* Define o preenchimento do elemento como 1rem;*/  top: 0; /* Define a posição superior do elemento como 0;*/
+
+}
+.menu{
+    display: flex;/* Define o display do elemento como flex;*/
+    justify-content: center;/* Define o alinhamento dos itens do elemento como espaço entre eles;*/    
+    list-style: none;/* Remove a lista de estilo do elemento;*/
+    gap: 3rem;/* Define o espaçamento entre os itens do elemento como 3rem;*/
+  
+}
+.menu li a{
+
+    text-decoration: none;/* Remove o sublinhado do texto do link;*/
+    color: var(--claro);/* Define a cor do texto do link como var(--claro);*/
+    font-size: 1.25rem;/* Define o tamanho da fonte do texto do link como 1.25rem;*/
+    font-weight: 500;/* Define o peso da fonte do texto do link como 600;*/
+    position: relative;
+    padding: 0.5rem 0;
+    
+}
+
+
+.menu-link::after{
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background:linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition:  width 0.5s ease;
+  
+}
+
+.menu-link:hover::after{
+    width: 100%;
+}
+
+
+.cabecalho{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.foto-perfil{       
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+    border-radius: 1%;
+    /* border: 1px solid var(--vidro); */
+    animation: flutuar 5s ease-in-out infinite alternate;
+
+}
+
+h1{
+    font-size: 3.5rem;
+    color: var(--claro); 
+    margin: 20px;
+    font-weight: bold;
+ 
+}
+
+.cabecalho-subtitulo{
+    font-size: 1.5rem;
+    color: var(--claro);
+    margin: 20px;
+   
+}
+
+.sobre{
+  
+    padding: 6rem 2rem;/* Define o preenchimento do elemento como 6rem 2rem para o topo e direita e esquerda, e 2rem para o fundo;*/
+
+}
+
+.sobre-titulo{          
+    font-size:3rem;
+    color: var(--claro);  
+    margin-bottom:1px;
+    text-align: center;
+  
+}
+
+.sobre-caixa{
+    padding: 2rem;
+    max-width: 800px;
+    margin: 55px auto;
+    border-radius: 16px;
+    border:1px solid var(--vidro);    
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+
+    
+}   
+.sobre-paragrafo {
+    font-size: 1rem; 
+    line-height: 1.6; 
+    text-align: center;
+    margin-bottom: 15px; 
+    font-family: 'Roboto', sans-serif; 
+    color:var(--claro); 
+    padding: 0 20px; 
+}
+
+
+.sobre-caixa-diferenciais{
+    display: flex;  
+    align-items: center ;
+    justify-content: center;
+    font-size: 1rem; 
+    line-height: 1.6; 
+    text-align: center;
+    margin-bottom: 15px; 
+    font-family: 'Roboto', sans-serif; 
+    color:var(--claro); 
+    padding: 0 20px;  
+    
+}
+
+.sobre-paragrafo-diferenciais{
+    font-size: 1rem; 
+    line-height: 1.6; 
+    text-align: center;
+    margin-bottom: 15px; 
+    font-family: 'Roboto', sans-serif; 
+    color:var(--claro); 
+    padding: 0 20px;
+    text-decoration: underline;
+}
+
+
+.sobre-caixa-diferenciais ul {
+    list-style-type: none; /* Estilo padrão de marcador de lista */
+    padding-left: 20px; /* Adiciona um recuo para os itens da lista */
+    color: #666; /* Cor do texto da lista */
+    font-size: 1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: var(--claro);  
+}
+
+.sobre-caixa ul li {
+    margin-bottom: 5px; /* Espaçamento entre os itens da lista */
+}
+
+
+.sobre-caixa-botao {
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+.sobre-botao {
+    background-color: var(--vidro); 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.sobre-botao:hover {
+    background-color: var(--escuro); 
+}
+
+
+.nome-financeira {
+    color: var(--secundaria); /* Azul vibrante para destacar o nome */
+    font-weight: bold; /* Opcional: deixar o nome em negrito também */
+}
+
+
+
+.projetos{
+    padding: 6rem 2rem;
+    margin-bottom: 160px;
+}
+
+.projetos-caixa{
+   
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    
+
+} 
+
+.projetos-card{
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border:1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.projetos-card:hover{
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);;
+    transform: translateY(-10px) scale(1.03 );
+   
+}
+
+.projetos-titulo{
+    text-align: center;
+    font-size: 2.5rem;    
+    margin-bottom: 50px;
+}   
+
+
+
+.projetos-imagem{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.info-projetos{
+    margin-bottom: 10px;
+   
+}
+
+
+.caixa-texto-projetos{
+    padding: 1.5rem; ;
+    margin-bottom:10px;
+
+}
+
+.caixa-texto-projetos h3{
+    
+    margin-bottom:10px;
+
+}
+
+.paragrafo-projetos{
+    color: rgba(226,232,240, 0.8);
+    line-height: 1.25rem;
+}
+
+.contatos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contatos-titulo{
+    text-align: center;
+    font-size: 2.5rem;    
+    margin-bottom: 50px;
+   
+}
+
+.formulario-contato {
+    max-width: 600px;
+    margin: 150px auto;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    padding: 2rem ;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem;
+  
+}
+
+.campo-form{
+   
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro); 
+    outline: none;  
+   
+}
+
+.campo-form:focus{
+    border-color: var(--primaria);
+    box-shadow: 0 0 10px rgba (79, 70, 229, 0.3);
+}
+
+.botao-form{
+    color: var(--claro);   
+    background:linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;   
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.5 ease;    
+}
+
+.botao-form:hover{
+    box-shadow: 0 0 10px rgba (79, 70, 229, 0.3);
+    transform: translateY(-4px);
+}
+
+@media (max-width: 1024px) { /* Ajuste este valor conforme necessário */
+    .navegacao {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    /* Ajustes para telas menores que 768px de largura */
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu li {
+        width: 100%; /* Ajuste para ocupar a largura total em telas menores */
+        text-align: center;
+    }
+
+    .foto-perfil {
+        width: 300px; /* Reduz o tamanho da foto de perfil */
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Reduz o tamanho da fonte do título */
+        text-align: center;
+    }
+
+    .cabecalho-subtitulo {
+        font-size: 1.2rem; /* Reduz o tamanho da fonte do subtítulo */
+        text-align: center;
+    }
+
+    .sobre-caixa {
+        margin: 30px auto; /* Reduz a margem da caixa de "Sobre Mim" */
+    }
+
+    .projetos-caixa {
+        grid-template-columns: 1fr; /* Organiza os projetos em uma única coluna */
+    }
+
+    .formulario-contato {
+        margin: 50px auto; /* Reduz a margem do formulário de contato */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para telas menores que 480px de largura (smartphones) */
+
+    .foto-perfil {
+        width: 200px; /* Reduz ainda mais o tamanho da foto de perfil */
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 2rem; /* Reduz ainda mais o tamanho da fonte do título */
+    }
+
+    .cabecalho-subtitulo {
+        font-size: 1rem; /* Reduz ainda mais o tamanho da fonte do subtítulo */
+    }
+
+    .tecnologia-imagens {
+        gap: 1rem; /* Reduz o espaçamento entre as imagens de tecnologia */
+    }
+
+    .sobre-imagem {
+        width: 60px; /* Reduz o tamanho das imagens de tecnologia */
+        height: 60px;
+    }
+}
+
+
