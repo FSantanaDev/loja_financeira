@@ -642,47 +642,6 @@ form button[disabled] {
 
 
 
-/* Estilos para telas menores (celulares e tablets) - MODAL */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-
-    /* Ajuste dos grupos de campos (flex) para empilharem verticalmente */
-    .container-cep-endereco,
-    .container-cpf-telefone,
-    .container-cidade-estado,
-    .container-renda {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    /* Estado vai ocupar 100% na versão mobile */
-    .container-cidade-estado .estado {
-        width: 100%;
-    }
-
-    /* Botão de fechar com tamanho menor para caber bem em telas pequenas */
-    .fechar-modal {
-        top: 10px;
-        right: 15px;
-        font-size: 20px;
-    }
-
-    /* Estilo do botão para caber melhor em celulares */
-    form button[type="submit"] {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    #avaliacaoForm h2 {
-        font-size: 1.4em; /* Ajuste o tamanho da fonte do título em telas menores */
-        margin-bottom: 15px;
-        text-align: left; /* Alinhe o título à esquerda em telas menores (opcional) */
-    }
-}
-
 /* Media Queries para Responsividade - GERAL DO SITE (evitando conflitos com o modal) */
 @media (max-width: 768px) {
     .menu {
