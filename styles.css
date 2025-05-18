@@ -10,34 +10,14 @@ html {
     scroll-behavior: smooth;
 }
 
-:root {
-    --primaria: #4f46e5;
-    --secundaria: #7c3aed;
-    --escuro: #090908;
-    --maisEscuro: #0a0f1c;
-    --claro: #e2e8f0;
-    --vidro: rgba(255, 255, 255, 0.1);
-}
-
-/* :root{
+:root{
     --primaria: #4f46e5;
     --secundaria: #7c3aed;
     --escuro: #0f172a;
     --maisEscuro: #0a0f1c;
     --claro: #e2e8f0;
     --vidro: rgba(255, 255, 255, 0.1);   
-} */
-
-
-
-
-
-
-
-
-
-
-
+} 
 
 body {
     background-color: var(--escuro);
@@ -421,14 +401,11 @@ h1 {
     margin-bottom: 10px;
    
 }
-
-
 .contatos-titulo {
     text-align: center;
     font-size: 2rem; /* Reduzido tamanho inicial */
     margin-bottom: 30px; /* Reduzido margem inferior */
 }
-
 .formulario-contato {
     max-width: 500px; /* Reduzido largura máxima */
     margin: 100px auto; /* Reduzido margem */
@@ -438,11 +415,9 @@ h1 {
     padding: 1.5rem; /* Reduzido padding */
     border: 1px solid var(--vidro);
 }
-
 .grupo-form {
     margin-bottom: 1rem; /* Reduzido margem */
 }
-
 .campo-form {
     width: 100%;
     padding: 0.8rem; /* Reduzido padding */
@@ -453,7 +428,6 @@ h1 {
     outline: none;
     font-size: 0.9rem; /* Reduzido tamanho da fonte */
 }
-
 .campo-form:focus {
     border-color: var(--primaria);
     box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
