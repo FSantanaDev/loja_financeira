@@ -1,226 +1,226 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script type="text/javascript">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
         (function(){
-            emailjs.init("xXUgi_Qu_LDOR391F"); // Sua Public Key do EmailJS (você precisa substituir pela sua chave real)
+            emailjs.init("xXUgi_Qu_LDOR391F"); // Sua Public Key do EmailJS
         })();
     </script>
-
-  <title>Giselle Financeira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/output.css" />
+    <title>Giselle Financeira</title>
 </head>
-<body>
+<body class="bg-gray-100 font-sans">
 
-  <!-- Fundo animado (se estiver usando partículas, personalize no CSS) -->
-  <div class="particulas"></div>
+    <div class="particulas"></div>
 
-  <!-- Navegação -->
-  <nav class="navegacao" id="navegacao">
-    <button class="menu-toggle" aria-controls="menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+
+
+
+<nav id="navegacao" class="fixed top-0 left-0 right-0 mb-8 bg-white shadow py-4 z-10">
+  <div class="container mx-auto flex justify-between items-center px-4">
+
+    <!-- Botão hamburguer (visível só em telas pequenas) -->
+    <button id="menuToggle" class="block md:hidden" aria-controls="menu" aria-expanded="false">
+      <span class="block h-0.5 w-6 bg-gray-600 transition"></span>
+      <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition"></span>
+      <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition"></span>
     </button>
-    <ul class="menu" id="menu">
-      <li><a href="#Início" class="menu-link">Início</a></li>
-      <li><a href="#sobre-produtos" class="menu-link">Produtos</a></li>
-      <li><a href="#sobre" class="menu-link">Sobre</a></li>
-      <li><a href="#contatos" class="menu-link">Contato</a></li>
+
+    <!-- Menu principal -->
+    <ul id="menu" class="hidden md:flex space-x-6">
+      <li><a href="#Início" class="menu-link text-gray-700 hover:text-indigo-600">Início</a></li>
+      <li><a href="#sobre-produtos" class="menu-link text-gray-700 hover:text-indigo-600">Produtos</a></li>
+      <li><a href="#sobre" class="menu-link text-gray-700 hover:text-indigo-600">Sobre</a></li>
+      <li><a href="#contatos" class="menu-link text-gray-700 hover:text-indigo-600">Contato</a></li>
     </ul>
-  </nav>
 
-<!-- MODAL DE AVALIAÇÃO FINANCEIRA -->
-  <!-- Overlay + Modal -->
-<!-- Fundo e conteúdo do modal -->
-<div id="avaliacaoModal" class="modal" style="display: none;">
-  <div class="modal-content">
-    <!-- Botão de fechar o modal -->
-    <span class="fechar-modal" style="cursor: pointer; float: right;">&times;</span>
-    <h2>Solicitação de Avaliação Financeira</h2>
-
-    <!-- Formulário -->
-    <form id="avaliacaoForm">
-        <!-- Nome completo -->
-        <label for="nomeAvaliacao">Nome completo:</label>
-        <input type="text" id="nomeAvaliacao" name="nome" required>
-
-        <label for="emailAvaliacao">E-mail:</label>
-        <input type="email" id="emailAvaliacao" name="email" required>
-
-        <div class="container-cpf-telefone">
-                <div class="campo-cpf">  
-                <!-- CPF -->
-                    <label for="cpfAvaliacao">CPF:</label>
-                    <input type="text" class="cpf" id="cpfAvaliacao" name="cpf" required>
-                </div>
-
-                <div class="campo-telefone"> 
-                <!-- Telefone com WhatsApp -->
-                <label for="telefoneAvaliacao">Telefone (WhatsApp):</label>
-                <input type="text" id="telefoneAvaliacao" name="telefone" required>
-                </div>
-            </div>
-     
-        <div class="container-cep-endereco">
-            <div class="cep">
-            <!-- CEP -->
-            <label for="cepAvaliacao">CEP:</label>
-            <input type="text" id="cepAvaliacao" name="cep" required>
-            </div>
-            <div class="cep-box">
-            <!-- CEP -->
-            
-            </div>
-        </div>
-
-        <!-- Endereço preenchido automaticamente -->
-        <label for="enderecoAvaliacao">Endereço:</label>
-        <input type="text" id="enderecoAvaliacao" name="endereco" readonly required>
-
-        <!-- <label for="bairroAvaliacao">Bairro:</label>
-        <input type="text" id="bairroAvaliacao" name="bairro" readonly required> -->
-        
-        <div class="container-cidade-estado">
-
-            <div class="cidade">
-                <label for="bairroAvaliacao">Bairro:</label>
-                <input type="text" id="bairroAvaliacao" name="bairro" readonly required>
-            </div>
-
-
-
-
-            <div class="cidade">
-                <label for="cidadeAvaliacao">Cidade:</label>
-                <input type="text" id="cidadeAvaliacao" name="cidade" readonly required>
-            </div>
-            <div class="estado">
-                <label for="estadoAvaliacao">Estado:</label>
-                <input type="text" id="estadoAvaliacao" name="estado" readonly required>
-            </div>
-        </div>
-
-
-        <div class="container-renda">
-
-            <div class="renda-mensal">
-            <!-- Renda Anual -->
-            <label for="rendaAnualAvaliacao">Renda Anual:</label>
-            <input type="text" id="rendaAnualAvaliacao" name="renda_anual" required>
-            </div>
-
-            <div class="renda-balanco">
-            <label for="rendaBalancoAvaliacao">Renda do Último Balanço:</label>
-            <input type="text" id="rendaBalancoAvaliacao" name="renda_balanco" required>            
-            </div>
-       
-       
-       
-       
-        </div>        
-
-      <!-- Política de Privacidade -->
-      <div class="checkbox-container">
-        <input type="checkbox" id="politicaPrivacidade" required>
-        <label for="politicaPrivacidade">
-          Eu concordo com a <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>
-        </label>
-      </div>
-
-      <!-- Botão de Enviar -->
-      <button type="submit" id="btnEnviar" disabled>Enviar Avaliação</button>
-    </form>
   </div>
-</div>
+</nav>
 
 
-  <!-- INÍCIO -->
-  <main id="Início" class="cabecalho">
-    <img src="lucro-financeiro.png" alt="Foto de perfil" class="foto-perfil" />
-    <h1>Giselle Financeira</h1>
-    <p class="cabecalho-subtitulo">Sua parceira em soluções financeiras.</p>
-    <div class="sobre-cabecalho-botao">
-      <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
-    </div>
-  </main>
 
-  <!-- SOBRE A EMPRESA -->
-  <section id="sobre" class="sobre">
-    <h2 class="sobre-titulo">Sobre a <span class="nome-financeira">Giselle Financeira</span></h2>
-    <div class="sobre-caixa">
-      <p class="sobre-paragrafo"><strong><span class="nome-financeira">Giselle Financeira</span>: Fomento Empresarial Estratégico para o seu Crescimento</strong></p>
-      <p class="sobre-paragrafo">A <span class="nome-financeira">Giselle Financeira</span> é sua parceira para impulsionar o crescimento empresarial com soluções de fomento personalizadas.</p>
-      <p class="sobre-paragrafo">Oferecemos mais que capital, construindo relações de confiança com análise criteriosa e soluções alinhadas aos seus objetivos.</p>
-      <p class="sobre-paragrafo">Nosso compromisso é o seu sucesso...</p>
-
-      <p class="sobre-paragrafo-diferenciais"><strong>Diferenciais:</strong></p>
-      <ul>
-        <li>Soluções personalizadas com abordagem consultiva.</li>
-        <li>Agilidade e eficiência nos processos.</li>
-        <li>Condições competitivas e justas.</li>
-        <li>Parceria estratégica dedicada ao seu sucesso.</li>
-      </ul>
-
-      <div class="sobre-caixa-botao">
-        <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUTOS -->
-  <section id="sobre-produtos" class="projetos">
-    <h2 class="projetos-titulo">Nossos Produtos</h2>
-    <div class="projetos-caixa">
-      <div class="projetos-card">
-        <img src="capital-de-giro.png" class="projetos-imagem" />
-        <div class="projeto-conteudo">
-          <h3>Capital de Giro</h3>
-          <p>Manter o fluxo de caixa da sua empresa saudável</p>
-          <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
+    <div id="avaliacaoModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden">
+        <div class="modal-content bg-white p-6 rounded-md shadow-xl max-w-md w-full relative">
+            <span class="fechar-modal absolute top-3 right-4 text-xl font-bold text-gray-600 cursor-pointer">&times;</span>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Solicitação de Avaliação Financeira</h2>
+            <form id="avaliacaoForm" class="grid gap-4">
+                <div>
+                    <label for="nomeAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Nome completo:</label>
+                    <input type="text" id="nomeAvaliacao" name="nome" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div>
+                    <label for="emailAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">E-mail:</label>
+                    <input type="email" id="emailAvaliacao" name="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div class="container-cpf-telefone grid gap-4 md:grid-cols-2">
+                    <div class="campo-cpf">
+                        <label for="cpfAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">CPF:</label>
+                        <input type="text" class="cpf shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cpfAvaliacao" name="cpf" required>
+                    </div>
+                    <div class="campo-telefone">
+                        <label for="telefoneAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Telefone (WhatsApp):</label>
+                        <input type="text" id="telefoneAvaliacao" name="telefone" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                </div>
+                <div class="container-cep-endereco grid gap-4 md:grid-cols-2">
+                    <div class="cep">
+                        <label for="cepAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">CEP:</label>
+                        <input type="text" id="cepAvaliacao" name="cep" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="cep-box">
+                    </div>
+                </div>
+                <div>
+                    <label for="enderecoAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Endereço:</label>
+                    <input type="text" id="enderecoAvaliacao" name="endereco" readonly required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200">
+                </div>
+                <div class="container-cidade-estado grid gap-4 md:grid-cols-3">
+                    <div class="cidade">
+                        <label for="bairroAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Bairro:</label>
+                        <input type="text" id="bairroAvaliacao" name="bairro" readonly required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200">
+                    </div>
+                    <div class="cidade">
+                        <label for="cidadeAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Cidade:</label>
+                        <input type="text" id="cidadeAvaliacao" name="cidade" readonly required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200">
+                    </div>
+                    <div class="estado">
+                        <label for="estadoAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Estado:</label>
+                        <input type="text" id="estadoAvaliacao" name="estado" readonly required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-200">
+                    </div>
+                </div>
+                <div class="container-renda grid gap-4 md:grid-cols-2">
+                    <div class="renda-mensal">
+                        <label for="rendaAnualAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Renda Anual:</label>
+                        <input type="text" id="rendaAnualAvaliacao" name="renda_anual" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="renda-balanco">
+                        <label for="rendaBalancoAvaliacao" class="block text-gray-700 text-sm font-bold mb-2">Renda do Último Balanço:</label>
+                        <input type="text" id="rendaBalancoAvaliacao" name="renda_balanco" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                </div>
+                <div class="checkbox-container flex items-center mt-4">
+                    <input type="checkbox" id="politicaPrivacidade" required class="form-checkbox h-4 w-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500">
+                    <label for="politicaPrivacidade" class="ml-2 text-gray-700 text-sm">
+                        Eu concordo com a <a href="/politica-de-privacidade" target="_blank" class="text-indigo-600 hover:underline">Política de Privacidade</a>
+                    </label>
+                </div>
+                <button type="submit" id="btnEnviar" disabled class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-6 w-full">Enviar Avaliação</button>
+            </form>
         </div>
-      </div>
-
-      <div class="projetos-card">
-        <img src="adiantamento-em-dinheiro.png" class="projetos-imagem" />
-        <div class="projeto-conteudo">
-          <h3>Antecipação de Recebíveis</h3>
-          <p>Desconto de cheques e factoring para liberar capital</p>
-          <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
-        </div>
-      </div>
-
-      <div class="projetos-card">
-        <img src="emprestimo-de-credito.png" class="projetos-imagem" />
-        <div class="projeto-conteudo">
-          <h3>Crédito para Investimento</h3>
-          <p>Financiamento para máquinas e expansão</p>
-          <button class="sobre-botao abrir-modal">Fazer Avaliação Financeira</button>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- CONTATO -->
-  <section id="contatos" class="contato">
-    <h2 class="contatos-titulo">Entre em Contato</h2>
-    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
-      <div class="grupo-form">
-        <input placeholder="Nome" class="campo-form" id="nome" />
-      </div>
-      <div class="grupo-form">
-        <textarea class="campo-form" placeholder="Digite sua Mensagem" rows="4" id="mensagem"></textarea>
-      </div>
-      <button type="submit" class="botao-form">Enviar WhatsApp</button>
-    </form>
-  </section>
+    <main id="Início" class="cabecalho bg-indigo-100 h-screen flex flex-col justify-center items-center text-center pt-16 py-20 md:h-screen">
+        <div class="conteudo-principal">
+            <img src="assets/lucro-financeiro.png" alt="Foto de perfil" class="foto-perfil rounded-md w-48 h-48 object-contain mb-8 mx-auto" />
+            <h1 class="text-4xl font-bold text-indigo-700 mt-8">Nome da Empresa</h1>
+            <p class="cabecalho-subtitulo text-lg text-gray-600 mt-2">Sua parceira em soluções financeiras.</p>
+            <div class="sobre-cabecalho-botao mt-8">
+                <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline abrir-modal">Fazer Avaliação Financeira</button>
+            </div>
+        </div>
+    </main>
+    <section id="sobre" class="sobre py-16 bg-white pt-32 md:h-screen">
+        <div class="container mx-auto text-center">
+            <h2 class="sobre-titulo text-3xl font-semibold text-gray-800 mb-8">Sobre a <span class="nome-financeira text-indigo-600">Nome da Empresa</span></h2>
+            <div class="sobre-caixa max-w-2xl mx-auto">
+                <p class="sobre-paragrafo text-gray-700 mb-4"><strong><span class="nome-financeira text-indigo-600">Nome da empresa</span>: Fomento Empresarial Estratégico para o seu Crescimento</strong></p>
+                <p class="sobre-paragrafo text-gray-700 mb-4">A <span class="nome-financeira text-indigo-600">Nome da emrpesa</span> é sua parceira para impulsionar o crescimento empresarial com soluções de fomento personalizadas.</p>
+                <p class="sobre-paragrafo text-gray-700 mb-4">Oferecemos mais que capital, construindo relações de confiança com análise criteriosa e soluções alinhadas aos seus objetivos.</p>
+                <p class="sobre-paragrafo text-gray-700 mb-4">Nosso compromisso é o seu sucesso...</p>
+                <p class="sobre-paragrafo-diferenciais text-gray-700 font-bold mt-6"><strong>Diferenciais:</strong></p>
+                <ul class="list-none pl-6 text-gray-700">
+                    <li class="mb-2">Soluções personalizadas com abordagem consultiva.</li>
+                    <li class="mb-2">Agilidade e eficiência nos processos.</li>
+                    <li class="mb-2">Condições competitivas e justas.</li>
+                    <li class="mb-2">Parceria estratégica dedicada ao seu sucesso.</li>
+                </ul>
+                <div class="sobre-caixa-botao mt-8">
+                    <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline abrir-modal">Fazer Avaliação Financeira</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+
+
+
+
+
+
+
+    <section id="sobre-produtos" class="projetos py-16 bg-gray-100 pt-32 md:h-screen">
+        <div class="container mx-auto text-center">
+            <h2 class="projetos-titulo text-3xl font-semibold text-gray-800 mb-12">Nossos Produtos</h2>
+            <div class="projetos-caixa grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
+                    <img src="assets/capital-de-giro.png" alt="Capital de Giro" class="projetos-imagem w-full h-36 object-contain p-6" />
+                    <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Capital de Giro</h3>
+                            <p class="text-gray-700 text-xs mb-4">Manter o fluxo de caixa da sua empresa saudável</p>
+                        </div>
+                        <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline text-xs">Fazer Avaliação Financeira</button>
+                    </div>
+                </div>
+
+                <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
+                    <img src="assets/adiantamento-em-dinheiro.png" alt="Antecipação de Recebíveis" class="projetos-imagem w-full h-36 object-contain p-6" />
+                    <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Antecipação de Recebíveis</h3>
+                            <p class="text-gray-700 text-xs mb-4">Desconto de cheques e factoring para liberar capital</p>
+                        </div>
+                        <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline text-xs">Fazer Avaliação Financeira</button>
+                    </div>
+                </div>
+
+                <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
+                    <img src="assets/emprestimo-de-credito.png" alt="Crédito para Investimento" class="projetos-imagem w-full h-36 object-contain p-6" />
+                    <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Crédito para Investimento</h3>
+                            <p class="text-gray-700 text-xs mb-4">Financiamento para máquinas e expansão</p>
+                        </div>
+                        <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline text-xs">Fazer Avaliação Financeira</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    
+    <section id="contatos" class="contato py-16 bg-indigo-50 md:h-screen flex flex-col justify-center items-center">
+        <div class="container mx-auto text-center">
+            <h2 class="contatos-titulo text-3xl font-semibold text-gray-800 mb-8">Entre em Contato</h2>
+            <form id="formulario" class="formulario-contato max-w-lg w-full mx-auto grid gap-6">
+                <div class="grupo-form">
+                    <input placeholder="Nome" class="campo-form shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" id="nome" />
+                </div>
+                <div class="grupo-form">
+                    <textarea class="campo-form shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none" placeholder="Digite sua Mensagem" rows="4" id="mensagem"></textarea>
+                </div>
+                <button type="submit" class="botao-form bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline w-full md:w-auto mx-auto" onsubmit="enviarWhats(event)">Enviar WhatsApp</button>
+            </form>
+        </div>
+</section>
+    <script src="scripts.js"></script>
 </body>
 </html>
