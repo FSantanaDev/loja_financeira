@@ -44,21 +44,29 @@
     <div class="particulas"></div>
 
 <nav id="navegacao" class="fixed top-0 left-0 right-0 mb-8 bg-white shadow py-4 z-10">
-  <div class="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8">
-    <button id="menuToggle" class="block md:hidden" aria-controls="menu" aria-expanded="false">
-      <span class="block h-0.5 w-6 bg-gray-600 transition"></span>
-      <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition"></span>
-      <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition"></span>
-    </button>
+    <div class="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8">
+        <button id="menuToggle" class="block md:hidden focus:outline-none" aria-controls="menu" aria-expanded="false">
+            <span class="block h-0.5 w-6 bg-gray-600 transition duration-300 ease-in-out"></span>
+            <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition duration-300 ease-in-out"></span>
+            <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition duration-300 ease-in-out"></span>
+        </button>
 
-    <ul id="menu" class="hidden md:flex space-x-6">
-      <li><a href="#Início" class="menu-link text-gray-700 hover:text-indigo-600">Início</a></li>
-      <li><a href="#sobre-produtos" class="menu-link text-gray-700 hover:text-indigo-600">Produtos</a></li>
-      <li><a href="#sobre" class="menu-link text-gray-700 hover:text-indigo-600">Sobre</a></li>
-      <li><a href="#contatos" class="menu-link text-gray-700 hover:text-indigo-600">Contato</a></li>
-    </ul>
+        <ul id="menu-desktop" class="hidden md:flex space-x-6">
+            <li><a href="#Início" class="menu-link text-gray-700 hover:text-indigo-600">Início</a></li>
+            <li><a href="#sobre-produtos" class="menu-link text-gray-700 hover:text-indigo-600">Produtos</a></li>
+            <li><a href="#sobre" class="menu-link text-gray-700 hover:text-indigo-600">Sobre</a></li>
+            <li><a href="#contatos" class="menu-link text-gray-700 hover:text-indigo-600">Contato</a></li>
+        </ul>
+    </div>
 
-  </div>
+    <div id="menu-dropdown" class="hidden md:hidden bg-white shadow-lg py-2 mt-2">
+        <ul class="flex flex-col items-center">
+            <li><a href="#Início" class="menu-link block w-full py-2 px-4 text-gray-700 hover:bg-gray-100">Início</a></li>
+            <li><a href="#sobre-produtos" class="menu-link block w-full py-2 px-4 text-gray-700 hover:bg-gray-100">Produtos</a></li>
+            <li><a href="#sobre" class="menu-link block w-full py-2 px-4 text-gray-700 hover:bg-gray-100">Sobre</a></li>
+            <li><a href="#contatos" class="menu-link block w-full py-2 px-4 text-gray-700 hover:bg-gray-100">Contato</a></li>
+        </ul>
+    </div>
 </nav>
 
 

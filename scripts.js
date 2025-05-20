@@ -1,27 +1,61 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Referências dos elementos do modal
+    // --- Referências dos elementos do Modal de Avaliação ---
     const modal = document.getElementById('avaliacaoModal');
-    const botoesAbrirModal = document.querySelectorAll('.sobre-botao');
+    const botoesAbrirModal = document.querySelectorAll('.abrir-modal'); // Seletor genérico para abrir o modal
     const botaoFecharModal = document.querySelector('.fechar-modal');
-    const formulario = document.getElementById('avaliacaoForm');
-    const botaoEnviar = document.getElementById('btnEnviar');
+    const formularioAvaliacao = document.getElementById('avaliacaoForm');
+    const botaoEnviarAvaliacao = document.getElementById('btnEnviar');
     const checkboxPolitica = document.getElementById('politicaPrivacidade');
     const numeroWhatsApp = '+5592999889392';
     const rendaAnualInput = document.getElementById('rendaAnualAvaliacao');
     const rendaBalancoInput = document.getElementById('rendaBalancoAvaliacao');
+    const cpfAvaliacaoInput = document.getElementById('cpfAvaliacao');
+    const telefoneAvaliacaoInput = document.getElementById('telefoneAvaliacao');
+    const cepAvaliacaoInput = document.getElementById('cepAvaliacao');
+    const enderecoAvaliacaoInput = document.getElementById('enderecoAvaliacao');
+    const bairroAvaliacaoInput = document.getElementById('bairroAvaliacao');
+    const cidadeAvaliacaoInput = document.getElementById('cidadeAvaliacao');
+    const estadoAvaliacaoInput = document.getElementById('estadoAvaliacao');
 
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('menu');
-    // Função para abrir o modal
+    // --- Referências dos elementos da Navegação ---
+    const menuToggle = document.getElementById('menuToggle');
+    const menuDropdown = document.getElementById('menu-dropdown');
+    const menuDesktop = document.getElementById('menu-desktop');
+    const navLinksDropdown = menuDropdown.querySelectorAll('.menu-link');
+    const navLinksDesktop = menuDesktop.querySelectorAll('.menu-link');
+
+    // --- Funções do Modal ---
     function abrirModal() {
         modal.style.display = 'flex';
+        // Opcional: Para focar no primeiro campo do formulário ao abrir o modal
+        document.getElementById('nomeAvaliacao').focus();
     }
 
-    // Função para fechar o modal e limpar o formulário
     function fecharModal() {
         modal.style.display = 'none';
-        formulario.reset();
-        botaoEnviar.disabled = true;
+        formularioAvaliacao.reset();
+        botaoEnviarAvaliacao.disabled = true;
+        // Limpar máscaras após reset, se necessário (valores formatados)
+        rendaAnualInput.value = '';
+        rendaBalancoInput.value = '';
+        cpfAvaliacaoInput.value = '';
+        telefoneAvaliacaoInput.value = '';
+        cepAvaliacaoInput.value = '';
+        limparEndereco(); // Função para limpar os campos de endereço
+    }
+
+    // --- Funções de Formatação e Máscaras ---
+    function formatarMoeda(valor) {
+        if (!valor) return '';
+        const numeroLimpo = valor.replace(/\D/g, '');
+        const numero = parseFloat(numeroLimpo) / 100;
+        // Garante que o número não seja NaN antes de formatar
+        if (isNaN(numero)) return '';
+        const valorFormatado = numero.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+        return valorFormatado;
     }
 
     function formatarEExibir(input) {
@@ -30,37 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = valorFormatado;
     }
 
-    // Adicionar eventos de blur para formatar os campos de renda
-    rendaAnualInput.addEventListener('blur', function () {
-        formatarEExibir(this);
-    });
-
-    rendaBalancoInput.addEventListener('blur', function () {
-        formatarEExibir(this);
-    });
-
-    // Abrir o modal ao clicar nos botões
-    botoesAbrirModal.forEach(botao => {
-        botao.addEventListener('click', e => {
-            e.preventDefault();
-            abrirModal();
-        });
-    });
-
-    // Fechar modal ao clicar no botão de fechar
-    botaoFecharModal.addEventListener('click', fecharModal);
-
-    // Prevenir fechamento ao clicar fora do conteúdo do modal
-    modal.addEventListener('click', function (e) {
-        if (e.target === modal) return;
-    });
-
-    // Habilitar botão de envio apenas se a política de privacidade for aceita
-    checkboxPolitica.addEventListener('change', function () {
-        botaoEnviar.disabled = !this.checked;
-    });
-
-    // Aplicar máscara de CPF
     function aplicarMascaraCPF(campo) {
         campo.addEventListener('input', function () {
             let v = campo.value.replace(/\D/g, '').slice(0, 11);
@@ -71,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Aplicar máscara de telefone
     function aplicarMascaraTelefone(campo) {
         campo.addEventListener('input', function () {
             let v = campo.value.replace(/\D/g, '').slice(0, 11);
@@ -82,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Aplicar máscara de CEP
     function aplicarMascaraCEP(campo) {
         campo.addEventListener('input', function () {
             let v = campo.value.replace(/\D/g, '').slice(0, 8);
@@ -90,36 +91,87 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Formatar valores como moeda brasileira
-    function formatarMoeda(valor) {
-        if (!valor) return '';
-        const numeroLimpo = valor.replace(/\D/g, '');
-        const numero = parseFloat(numeroLimpo) / 100;
-        const valorFormatado = numero.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
-        return valorFormatado;
+    function limparEndereco() {
+        enderecoAvaliacaoInput.value = '';
+        bairroAvaliacaoInput.value = '';
+        cidadeAvaliacaoInput.value = '';
+        estadoAvaliacaoInput.value = '';
     }
 
-    // Aplicar máscaras aos campos
-    aplicarMascaraCPF(document.getElementById('cpfAvaliacao'));
-    aplicarMascaraTelefone(document.getElementById('telefoneAvaliacao'));
-    aplicarMascaraCEP(document.getElementById('cepAvaliacao'));
+    // --- Funções da Navegação ---
+    function fecharMenuDropdown() {
+        menuDropdown.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+
+        // REVERTE AS CLASSES DO ÍCONE DE HAMBÚRGUER PARA O ESTADO ORIGINAL
+        menuToggle.querySelector('span:nth-child(1)').classList.remove('rotate-45', 'translate-y-2');
+        menuToggle.querySelector('span:nth-child(2)').classList.remove('opacity-0');
+        menuToggle.querySelector('span:nth-child(3)').classList.remove('-rotate-45', '-translate-y-2');
+    }
+
+    function rolarParaSecao(targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            // Obtém a altura da navegação fixa
+            const navHeight = document.getElementById('navegacao').offsetHeight;
+            window.scrollTo({
+                top: targetElement.offsetTop - navHeight, // Ajusta para a altura da nav fixa
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    // --- Event Listeners ---
+
+    // Eventos do Modal
+    botoesAbrirModal.forEach(botao => {
+        botao.addEventListener('click', e => {
+            e.preventDefault();
+            abrirModal();
+        });
+    });
+
+    botaoFecharModal.addEventListener('click', fecharModal);
+
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) { // Fecha o modal apenas se clicar no overlay (fora do conteúdo)
+            fecharModal();
+        }
+    });
+
+    checkboxPolitica.addEventListener('change', function () {
+        botaoEnviarAvaliacao.disabled = !this.checked;
+    });
+
+    rendaAnualInput.addEventListener('blur', function () {
+        formatarEExibir(this);
+    });
+
+    rendaBalancoInput.addEventListener('blur', function () {
+        formatarEExibir(this);
+    });
+
+    // Aplica máscaras aos campos de formulário do modal
+    aplicarMascaraCPF(cpfAvaliacaoInput);
+    aplicarMascaraTelefone(telefoneAvaliacaoInput);
+    aplicarMascaraCEP(cepAvaliacaoInput);
 
     // Preenchimento automático de endereço via ViaCEP
-    document.getElementById('cepAvaliacao').addEventListener('blur', function () {
+    cepAvaliacaoInput.addEventListener('blur', function () {
         const cep = this.value.replace(/\D/g, '');
-        if (cep.length !== 8) return limparEndereco();
+        if (cep.length !== 8) {
+            limparEndereco();
+            return;
+        }
 
         fetch(`https://viacep.com.br/ws/${cep}/json/`)
             .then(response => response.json())
             .then(data => {
                 if (!data.erro) {
-                    document.getElementById('enderecoAvaliacao').value = data.logradouro || '';
-                    document.getElementById('bairroAvaliacao').value = data.bairro || '';
-                    document.getElementById('cidadeAvaliacao').value = data.localidade || '';
-                    document.getElementById('estadoAvaliacao').value = data.uf || '';
+                    enderecoAvaliacaoInput.value = data.logradouro || '';
+                    bairroAvaliacaoInput.value = data.bairro || '';
+                    cidadeAvaliacaoInput.value = data.localidade || '';
+                    estadoAvaliacaoInput.value = data.uf || '';
                 } else {
                     alert('CEP não encontrado.');
                     limparEndereco();
@@ -131,30 +183,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 
-    // Função para limpar os campos de endereço
-    function limparEndereco() {
-        document.getElementById('enderecoAvaliacao').value = '';
-        document.getElementById('bairroAvaliacao').value = '';
-        document.getElementById('cidadeAvaliacao').value = '';
-        document.getElementById('estadoAvaliacao').value = '';
-    }
-
-  
-     toggle.addEventListener('click', () => {
-    // Verifica se estamos em uma tela pequena
-    if (window.innerWidth < 768) {
-      menu.classList.toggle('hidden');
-      menu.classList.toggle('flex'); // Ativa o display: flex para mostrar a lista na vertical
-      menu.classList.toggle('flex-col'); // Garante que fique na vertical
-      menu.classList.toggle('space-y-4'); // Espaçamento entre os itens na vertical
-      menu.classList.remove('space-x-6'); // Remove o espaçamento horizontal
-    }
-  });
-    
-        
-
-    // Envio do formulário
-    formulario.addEventListener('submit', function (e) {
+    // Envio do formulário de avaliação (EmailJS e WhatsApp)
+    formularioAvaliacao.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const nome = document.getElementById('nomeAvaliacao').value;
@@ -182,4 +212,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('Erro ao enviar os dados. Tente novamente.');
             });
     });
+
+    // --- Eventos da Navegação ---
+    menuToggle.addEventListener('click', function() {
+        menuDropdown.classList.toggle('hidden');
+        const isExpanded = menuDropdown.classList.contains('hidden') ? 'false' : 'true';
+        this.setAttribute('aria-expanded', isExpanded);
+
+        // Animar o ícone de hambúrguer (toggle)
+        this.querySelector('span:nth-child(1)').classList.toggle('rotate-45');
+        this.querySelector('span:nth-child(2)').classList.toggle('opacity-0');
+        this.querySelector('span:nth-child(3)').classList.toggle('-rotate-45');
+        this.querySelector('span:nth-child(1)').classList.toggle('translate-y-2');
+        this.querySelector('span:nth-child(3)').classList.toggle('-translate-y-2');
+    });
+
+    // Adiciona evento de clique para os links do menu dropdown (mobile)
+    navLinksDropdown.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            fecharMenuDropdown(); // Esta função agora também reverte o ícone
+            const targetId = this.getAttribute('href').substring(1);
+            rolarParaSecao(targetId);
+        });
+    });
+
+    // Adiciona evento de clique para os links do menu desktop (mantendo a rolagem suave)
+    navLinksDesktop.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            rolarParaSecao(targetId);
+        });
+    });
+
+    // Exemplo de envio de formulário de contato (se o formulário de contato for diferente do modal)
+    // Se seu formulário de contato for enviar para o WhatsApp como o modal, você pode adaptar esta lógica.
+    // const formularioContato = document.getElementById('formulario');
+    // if (formularioContato) {
+    //     formularioContato.addEventListener('submit', function (e) {
+    //         e.preventDefault();
+    //         const nomeContato = document.getElementById('nome').value;
+    //         const mensagemContato = document.getElementById('mensagem').value;
+    //         const mensagemWhatsContato = `Olá, meu nome é ${nomeContato} e minha mensagem é: ${mensagemContato}`;
+    //         window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsContato)}`, '_blank');
+    //         formularioContato.reset();
+    //     });
+    // }
 });
