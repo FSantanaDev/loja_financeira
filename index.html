@@ -17,27 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/output.css" />
 
-    <style>
-        /* Esconde a barra de rolagem para WebKit browsers (Chrome, Safari, Edge baseado em Chromium) */
-        body::-webkit-scrollbar {
-            width: 0px;  /* Largura da barra de rolagem vertical */
-            background: transparent;  /* Cor de fundo */
-        }
-
-        /* Esconde a barra de rolagem para Firefox */
-        body {
-            scrollbar-width: none;  /* Remove a barra de rolagem para Firefox */
-        }
-        /* Opcional: Se quiser remover completamente a capacidade de rolagem da página,
-           e depender apenas da rolagem de elementos internos (como seu modal).
-           Cuidado: Isso pode cortar conteúdo que não esteja dentro de elementos roláveis.
-           html, body {
-               overflow: hidden;
-           }
-        */
-    </style>
-
-    <title>Giselle Financeira</title>
+    
+    <title>Empresa de Soluções Financeira</title>
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -141,24 +122,24 @@
 </div>
 
     <main id="Início" class="cabecalho bg-indigo-100 h-screen flex flex-col justify-center items-center text-center pt-16 py-20 md:h-screen">
-    <div class="container mx-auto px-6 sm:px-8 lg:px-12">
-        <div class="conteudo-principal">
-            <img src="assets/lucro-financeiro.png" alt="Foto de perfil" class="foto-perfil rounded-md w-48 h-48 object-contain mb-8 mx-auto" />
-            <h1 class="text-4xl font-bold text-indigo-700 mt-8">Nome da Empresa</h1>
-            <p class="cabecalho-subtitulo text-lg text-gray-600 mt-2">Sua parceira em soluções financeiras.</p>
-            <div class="sobre-cabecalho-botao mt-8">
-                <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline w-full sm:w-auto max-w-xs mx-auto abrir-modal">Fazer Avaliação Financeira</button>
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="conteudo-principal">
+                <img src="assets/lucro-financeiro.png" alt="Foto de perfil" class="foto-perfil rounded-md w-48 h-48 object-contain mb-8 mx-auto" />
+                <h1 class="text-4xl font-bold text-indigo-700 mt-8">Nome da Empresa</h1>
+                <p class="cabecalho-subtitulo text-lg text-gray-600 mt-2">Sua parceira em soluções financeiras.</p>
+                <div class="sobre-cabecalho-botao mt-8">
+                    <button class="abrir-modal bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
     <section id="sobre" class="sobre py-16 bg-white pt-32 md:h-screen">
         <div class="container mx-auto text-center px-6 sm:px-8 lg:px-12">
             <h2 class="sobre-titulo text-3xl font-semibold text-gray-800 mb-8">Sobre a <span class="nome-financeira text-indigo-600">Nome da Empresa</span></h2>
             <div class="sobre-caixa max-w-2xl mx-auto">
                 <div class="text-justify mb-4">
-                    <p class="sobre-paragrafo text-gray-700"><strong><span class="nome-financeira text-indigo-600">Nome da empresa</span>: Fomento Empresarial Estratégico para o seu Crescimento</strong></p>
+                    <p class="sobre-paragrafo text-gray-700"><strong><span class="nome-financeira text-indigo-600">Nome da empresa</span>: Fomento Empresarial Estratégico para o seu Crescimento.</strong></p>
                 </div>
                 <div class="text-left md:text-center mb-4">
                     <p class="sobre-paragrafo text-gray-700">A <span class="nome-financeira text-indigo-600">Nome da empresa</span> é sua parceira para impulsionar o crescimento empresarial com soluções de fomento personalizadas.</p>
@@ -178,51 +159,51 @@
                     </ul>
                 </div>
                 <div class="sobre-caixa-botao mt-8">
-                    <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline w-full sm:w-auto max-w-xs mx-auto abrir-modal">Fazer Avaliação Financeira</button>
+                    <button class="abrir-modal bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="sobre-produtos" class="projetos py-16 bg-gray-100 pt-32 md:h-screen">
-    <div class="container mx-auto text-center px-6 sm:px-8 lg:px-12">
-        <h2 class="projetos-titulo text-3xl font-semibold text-gray-800 mb-12">Nossos Produtos</h2>
-        <div class="projetos-caixa grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
-                <img src="assets/capital-de-giro.png" alt="Capital de Giro" class="projetos-imagem w-full h-36 object-contain p-6" />
-                <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
-                    <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Capital de Giro</h3>
-                        <p class="text-gray-700 text-xs mb-4">Manter o fluxo de caixa da sua empresa saudável</p>
+   <section id="sobre-produtos" class="projetos py-16 bg-gray-100 pt-32 md:h-screen">
+        <div class="container mx-auto text-center px-6 sm:px-8 lg:px-12">
+            <h2 class="projetos-titulo text-3xl font-semibold text-gray-800 mb-12">Nossos Produtos</h2>
+            <div class="projetos-caixa grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
+                    <img src="assets/capital-de-giro.png" alt="Capital de Giro" class="projetos-imagem w-full h-36 object-contain p-6" />
+                    <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Capital de Giro</h3>
+                            <p class="text-gray-700 text-xs mb-4">Manter o fluxo de caixa da sua empresa saudável</p>
+                        </div>
+                        <button class="abrir-modal bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                     </div>
-                    <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                 </div>
-            </div>
 
-            <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
-                <img src="assets/adiantamento-em-dinheiro.png" alt="Antecipação de Recebíveis" class="projetos-imagem w-full h-36 object-contain p-6" />
-                <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
-                    <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Antecipação de Recebíveis</h3>
-                        <p class="text-700 text-xs mb-4">Desconto de cheques e factoring para liberar capital</p>
+                <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
+                    <img src="assets/adiantamento-em-dinheiro.png" alt="Antecipação de Recebíveis" class="projetos-imagem w-full h-36 object-contain p-6" />
+                    <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Antecipação de Recebíveis</h3>
+                            <p class="text-700 text-xs mb-4">Desconto de cheques e factoring para liberar capital</p>
+                        </div>
+                        <button class="abrir-modal bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                     </div>
-                    <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                 </div>
-            </div>
 
-            <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
-                <img src="assets/emprestimo-de-credito.png" alt="Crédito para Investimento" class="projetos-imagem w-full h-36 object-contain p-6" />
-                <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
-                    <div>
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Crédito para Investimento</h3>
-                        <p class="text-gray-700 text-xs mb-4">Financiamento para máquinas e expansão</p>
+                <div class="projetos-card bg-white rounded-md shadow-md overflow-hidden flex flex-col justify-between">
+                    <img src="assets/emprestimo-de-credito.png" alt="Crédito para Investimento" class="projetos-imagem w-full h-36 object-contain p-6" />
+                    <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Crédito para Investimento</h3>
+                            <p class="text-gray-700 text-xs mb-4">Financiamento para máquinas e expansão</p>
+                        </div>
+                        <button class="abrir-modal bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                     </div>
-                    <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="contatos" class="contato py-16 bg-indigo-50 md:h-screen flex flex-col justify-center items-center">
     <div class="container mx-auto text-center px-6 sm:px-8 lg:px-12">
