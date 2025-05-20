@@ -16,6 +16,27 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/output.css" />
+
+    <style>
+        /* Esconde a barra de rolagem para WebKit browsers (Chrome, Safari, Edge baseado em Chromium) */
+        body::-webkit-scrollbar {
+            width: 0px;  /* Largura da barra de rolagem vertical */
+            background: transparent;  /* Cor de fundo */
+        }
+
+        /* Esconde a barra de rolagem para Firefox */
+        body {
+            scrollbar-width: none;  /* Remove a barra de rolagem para Firefox */
+        }
+        /* Opcional: Se quiser remover completamente a capacidade de rolagem da página,
+           e depender apenas da rolagem de elementos internos (como seu modal).
+           Cuidado: Isso pode cortar conteúdo que não esteja dentro de elementos roláveis.
+           html, body {
+               overflow: hidden;
+           }
+        */
+    </style>
+
     <title>Giselle Financeira</title>
 </head>
 <body class="bg-gray-100 font-sans">
@@ -23,7 +44,7 @@
     <div class="particulas"></div>
 
 <nav id="navegacao" class="fixed top-0 left-0 right-0 mb-8 bg-white shadow py-4 z-10">
-  <div class="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8"> 
+  <div class="container mx-auto flex justify-between items-center px-4 md:px-6 lg:px-8">
     <button id="menuToggle" class="block md:hidden" aria-controls="menu" aria-expanded="false">
       <span class="block h-0.5 w-6 bg-gray-600 transition"></span>
       <span class="block mt-1 h-0.5 w-6 bg-gray-600 transition"></span>
@@ -41,10 +62,7 @@
 </nav>
 
 
-
-
-
-  <div id="avaliacaoModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden overflow-y-auto p-4 sm:p-6 lg:p-8">
+ <div id="avaliacaoModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/50 hidden overflow-y-auto p-4 sm:p-6 lg:p-8">
     <div class="modal-content bg-white p-6 rounded-md shadow-xl max-w-md w-full relative mx-auto">
         <span class="fechar-modal absolute top-3 right-4 text-xl font-bold text-gray-600 cursor-pointer">&times;</span>
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Solicitação de Avaliação Financeira</h2>
@@ -114,13 +132,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
     <main id="Início" class="cabecalho bg-indigo-100 h-screen flex flex-col justify-center items-center text-center pt-16 py-20 md:h-screen">
     <div class="container mx-auto px-6 sm:px-8 lg:px-12">
         <div class="conteudo-principal">
@@ -144,7 +155,7 @@
                 <div class="text-left md:text-center mb-4">
                     <p class="sobre-paragrafo text-gray-700">A <span class="nome-financeira text-indigo-600">Nome da empresa</span> é sua parceira para impulsionar o crescimento empresarial com soluções de fomento personalizadas.</p>
                 </div>
-                 <div class="text-left md:text-center mb-4">
+                   <div class="text-left md:text-center mb-4">
                     <p class="sobre-paragrafo text-gray-700">Oferecemos mais que capital, construindo relações de confiança com análise criteriosa e soluções alinhadas aos seus objetivos.</p>
                 </div>
                 <div class="text-left md:text-center mb-4">
@@ -185,7 +196,7 @@
                 <div class="projeto-conteudo p-6 flex flex-col justify-between flex-grow">
                     <div>
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Antecipação de Recebíveis</h3>
-                        <p class="text-gray-700 text-xs mb-4">Desconto de cheques e factoring para liberar capital</p>
+                        <p class="text-700 text-xs mb-4">Desconto de cheques e factoring para liberar capital</p>
                     </div>
                     <button class="sobre-botao bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline text-xs w-full sm:w-auto max-w-xs mx-auto">Fazer Avaliação Financeira</button>
                 </div>
