@@ -24,6 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const navLinksDropdown = menuDropdown.querySelectorAll('.menu-link');
     const navLinksDesktop = menuDesktop.querySelectorAll('.menu-link');
 
+
+
+    const formularioContato = document.getElementById('formulario'); // MUDADO: Pegar o formulário pelo ID 'formulario'
+    const nomeContatoInput = document.getElementById('nome'); // MUDADO: Pegar o campo nome pelo ID 'nome'
+    const mensagemContatoInput = document.getElementById('mensagem'); // MUDADO: Pegar o campo mensagem pelo ID 'mensagem'
+
+
+
+
     // --- Funções do Modal ---
     function abrirModal() {
         modal.style.display = 'flex';
@@ -246,17 +255,31 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Exemplo de envio de formulário de contato (se o formulário de contato for diferente do modal)
-    // Se seu formulário de contato for enviar para o WhatsApp como o modal, você pode adaptar esta lógica.
-    // const formularioContato = document.getElementById('formulario');
-    // if (formularioContato) {
-    //     formularioContato.addEventListener('submit', function (e) {
-    //         e.preventDefault();
-    //         const nomeContato = document.getElementById('nome').value;
-    //         const mensagemContato = document.getElementById('mensagem').value;
-    //         const mensagemWhatsContato = `Olá, meu nome é ${nomeContato} e minha mensagem é: ${mensagemContato}`;
-    //         window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsContato)}`, '_blank');
-    //         formularioContato.reset();
-    //     });
-    // }
+     // --- Evento de envio do Formulário de Contato (WhatsApp) ---
+    if (formularioContato) { // Verifica se o formulário de contato existe na página
+        formularioContato.addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            const nomeContato = nomeContatoInput.value;
+            const mensagemContato = mensagemContatoInput.value;
+
+            // Construir a mensagem para o WhatsApp
+            const mensagemWhatsContato = `Olá, meu nome é ${nomeContato} e minha mensagem é: ${mensagemContato}`;
+
+            // Abrir o WhatsApp em uma nova aba/janela
+            window.open(`https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagemWhatsContato)}`, '_blank');
+
+            // Opcional: Resetar o formulário após o envio
+            formularioContato.reset();
+        });
+    }
+    
+    
 });
+
+
+
+
+
+
+
